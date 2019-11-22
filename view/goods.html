@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap </title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">  
+    <style>
+ 
+    body {
+      background: white;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 50px 0;
+      padding-bottom: 35px;
+    }
+	#banner{
+		max-width:1200px;}
+    .swiper-slide {
+       width:auto;
+    }
+	.swiper-slide img{
+		width:100%;
+	}
+	.swiper-pagination{
+		position:relative;
+		width:100%;
+    display: flex;
+    justify-content: center;
+    }
+	.swiper-pagination-bullet{
+		width:25%;
+    margin: 10px;
+		height:auto;
+		background:none;}
+	.swiper-pagination-bullet img{
+		width:100%;
+        }
+
+  .leftConten >div{
+    margin: 20px 0;
+  }
+  .goodsPrice{
+    color: red;
+    font-size: 24px;
+  }
+  .goodsPrice s{
+    color: black;
+  }
+  .select{
+    margin-top: 10px;
+  }
+  .select button{
+    width: 100%;
+    text-align: left;
+  }
+  .select .caret{
+    float: right;
+  }
+  .select ul{
+    width: 100%;
+  }
+  .select ul li{
+    padding: 0 12px;
+  }
+  .goodsimg img{
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .goodsFlyimg img{
+    max-width: 50px;
+    max-height: 50px;
+  }
+  .goodsFlyimg {
+    position: fixed;
+    right: -100px;
+    top: -10px;
+    z-index: 1031
+  }
+  .animationCart {
+    animation: bounce-in 2s ease 0.2s;
+    -webkit-animation: bounce-in 2s ease 0.2s;
+    animation-fill-mode:forwards;
+-webkit-animation-fill-mode:forwards; /* Safari 和 Chrome */
+  }
+  .animationCartCount {
+   animation: cartcount 0.2s linear 1.8s;
+   -webkit-animation: cartcount 0.2s linear 1.8s;
+}
+@keyframes cartcount {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+  .buy .buyNow{
+    width: 60%;
+    background-color: #0dbd21;
+    color: white;
+    float: right;
+  }
+  .buy .addCart{
+    width: 38%;
+    background-color: #0dbd21;
+    color: white;
+  }
+  #stepper > *{
+    display: inline-block;
+  }
+
+  #stepper .buy{
+    width: 75%;
+  }
+  @media (max-width: 768px) { 
+  #stepper .buy {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+    padding: 0 10px;
+  }
+  .buydiv > .row{
+    margin: 0;
+  }
+  .form >div{
+    margin: 10px;
+  }
+  .form .input-group{
+    margin: 10px 0;
+  }
+  .submit {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+
+  }
+  .submit button{
+    color: white;
+  width: 100%;
+  background-color: #1990c6;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(1);
+    right:200px;
+    top:50%;
+  }
+  /* 25% {
+    left:300px;
+    bottom:400px;
+  } */
+  /* 50% {
+    transform: scale(0.5);
+  } */
+  100% {
+    transform: scale(0.2);
+    right:30px;
+    top:0px;
+  }
+}
+  }
+  @media (min-width: 768px) { 
+    #stepper .buy{
+    width: calc(100% - 100px);
+  }
+  .buydiv > .row{
+    margin: 30px 80px;
+  }
+  .form >div{
+    margin: 10px;
+  }
+  .submit button{
+  float: right;
+  width: 30%;
+  background-color: #1990c6;
+  color: white;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(1);
+    right:45%;
+    top:25%;
+  }
+  /* 25% {
+    left:300px;
+    bottom:400px;
+  } */
+  100% {
+    transform: scale(0.2);
+    right: calc(50% - 350px);
+    top:0px;
+  }
+}
+}
+
+  @media (min-width: 992px) { 
+    @keyframes bounce-in {
+  0% {
+    transform: scale(1);
+    right:45%;
+    top:25%;
+  }
+  /* 25% {
+    left:300px;
+    bottom:400px;
+  } */
+  100% {
+    transform: scale(0.2);
+    right: calc(50% - 450px);
+    top:0px;
+  }
+}
+}
+
+  @media (min-width: 1200px) { 
+    @keyframes bounce-in {
+  0% {
+    transform: scale(1);
+    right:45%;
+    top:25%;
+  }
+  /* 25% {
+    left:300px;
+    bottom:400px;
+  } */
+  100% {
+    transform: scale(0.2);
+    right: calc(50% - 550px);
+    top:0px;
+  }
+}
+}
+.detail img {
+  width: 100%
+}
+.detail video {
+  width: 100%
+}
+.detail p {
+  word-wrap:break-word;
+}
+
+.buydiv {
+  display: none;
+}
+.backgoods{
+  padding: 0 15px;
+  font-size: 20px;
+}
+#panner {
+  padding: 0 15px;
+}
+#panner > div {
+  display: inline-block;
+}
+.pannerImg img{
+  border-radius: 15%;
+  width: 100px;
+}
+#panner .pannerTitle{
+  font-size: 18px;
+}
+#panner .pannerPrices{
+  /* position: absolute;
+    bottom: 0; */
+    font-size: 18px;
+}
+.pannerRight {
+  width: calc(100% - 110px);
+  float: right;
+}
+.pannerRight .pannerPrice{
+  float: right;
+  color: red;
+}
+.pannerRight .pannerAttr{
+  color: #999;
+}
+.totaldiv {
+  text-align: right;
+    font-size: 20px;
+    padding: 0 15px;
+}
+.totaldiv .total{
+  color: red;
+}
+.buydiv .pay{
+  padding: 0 15px;
+}
+.coupondiv {
+  text-align: right;
+    font-size: 16px;
+    padding: 0 15px;
+    color: #999;
+}
+.coupondiv .coupon{
+  color: red;
+}
+
+    </style>
+  </head>
+  <body>
+        <nav class="navbar navbar-default navbar-static-top navbar-fixed-top">
+                <div class="container">
+                  <div style="float: right;height: 50px;line-height: 50px;">
+                    <a href="../index.html"><span style="margin: 0 15px;" class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                    <span class="goCart glyphicon glyphicon-shopping-cart" aria-hidden="true"><span class="badge" style=" background-color:#e63636;vertical-align: top; padding: 2px 4px;"></span></span>
+                  </div>
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar" style="float: left; margin-right: 0;margin-left: 10px;">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+                    <ul class="nav navbar-nav">
+                      <li class="active"><a href="#">Home</a></li>
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="./view/goods.html">goods</a></li>
+                          <li><a href="#">Another action</a></li>
+                          <li><a href="#">Something else here</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li class="dropdown-header">Nav header</li>
+                          <li><a href="#">Separated link</a></li>
+                          <li><a href="#">One more separated link</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <!-- <ul class="nav navbar-nav navbar-right">
+                      <li><a href="../navbar/">Default</a></li>
+                      <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+                      <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+                    </ul> -->
+                  </div><!--/.nav-collapse -->
+                </div>
+        </nav>
+        <div class="container goodsdiv">
+            <div class="row">
+                <div id="banner" class="col-sm-6">  
+                    <div class="swiper-container swiper-container-horizontal">
+                      <div class="swiper-wrapper" style="transform: translate3d(-2186px, 0px, 0px); transition-duration: 0ms;">
+                        <!-- <div class="swiper-slide" ><img src="../img/1.jpg"></div>
+                        <div class="swiper-slide "><img src="../img/2.jpg"></div>
+                        <div class="swiper-slide " ><img src="../img/3.jpg"></div>
+                        <div class="swiper-slide " ><img src="../img/4.jpg"></div> -->
+                      </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                        <!-- <span class="swiper-pagination-bullet"><img src="../img/1.jpg"></span><span class="swiper-pagination-bullet"><img src="../img/2.jpg"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"><img src="../img/3.jpg"></span><span class="swiper-pagination-bullet"><img src="../img/4.jpg"></span> -->
+                    </div>
+                </div>
+                <div class="col-sm-6 leftConten"> 
+                    <div class="title"><h1></h1></div>
+                    <div class="goodsAbout"></div>
+                    <div class="goodsPrice"></div>
+                    <div class="goodsimg"><img src=" "></div>
+                    <div class="goodsFlyimg"><img src=" "></div>
+                    <div class="row selectDiv"></div>
+                    <div id="stepper">
+                       <div class="stepperConten">
+                         <button class="sub">-</button> <input type="text" value="1" style="width: 25px;" readonly> <button class="plus">+</button>
+                       </div>
+                       <div class="buy">
+                         <button type="button" class="addCart btn btn-default btn-group btn-group-lg" lang_key="addCart">addCart</button>
+                         <button type="button" class="buyNow btn btn-default btn-group btn-group-lg" lang_key="buy">Buy</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row detail"> </div>
+        </div>
+        <div class="container buydiv">
+            <div class="row"><span class="backgoods glyphicon glyphicon-menu-left" ></span></div>
+            <div class="row">
+                  <div id="panner">
+                  </div>
+            </div>
+            <div class="row coupondiv" style="display: none;">
+              <span lang_key="couponmoney">Discount amount: </span><span class="coupon"></span>
+            </div>
+            <div class="row totaldiv">
+                  <span lang_key="total">Total: </span><span class="total"></span>
+            </div>
+            <div class="row pay">
+                  <span class="paytext" lang_key="payOnDelivery">Pay on delivery</span><img src="../img/cash.jpg" alt="" style="height: 30px; vertical-align: bottom; padding-left: 10px;">
+            </div>
+            <div class="row form">
+                    <div class="row">
+                    <div class="col-sm-6">
+                     <div class="input-group">
+                       <span class="input-group-addon" id="name"><span style="color: red">*</span>  <span lang_key="name">Name</span></span>      
+                       <input type="text" class="form-control name" placeholder="Name" aria-describedby="name">
+                     </div>
+                    </div>
+                    <div class="col-sm-6">
+                     <div class="input-group">
+                       <span class="input-group-addon" id="telephone"><span style="color: red">*</span>  <span lang_key="phoneNumber">Telephone</span></span> 
+                       <input type="text" class="form-control telephone" placeholder="Phone Number" aria-describedby="telephone">
+                     </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div id="province" class="col-sm-6 select"></div>
+                    <div id="crity" class="col-sm-6 select"></div> 
+                    <div id="county" class="col-sm-6 select"></div> 
+                    <div id="post" class="col-sm-6 select"></div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="short_address"><span style="color: red">*</span>  <span lang_key="address">short_address</span></span> 
+                      <input type="text" class="form-control short_address" placeholder="short_address" >
+                    </div>
+                    </div>
+                    <div class="col-sm-6">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="email" lang_key="email"> Email</span> 
+                    <input type="text" class="form-control email" placeholder="email" >
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon" id="message" lang_key="message"> message</span> 
+                        <input type="text" class="form-control message" placeholder="message" >
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                        <input type="text" class="form-control couponid" placeholder="Please input your discount code" lang_key_ph="coupoCodeholder">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary couponidBut" type="button" lang_key="coupoCodeSend">Validation</button>
+                          </span>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="row submit">
+                <div><button type="button" class="btn btn-default btn-group btn-group-lg" lang_key="buyNow">Buy</button></div>
+            </div>
+            <div class="row orderSuccess" style="display: none;">
+              <div class="bg-success" style="padding: 10px 24px;margin: 5px 15px;color: green;font-size: 24px;">
+                 <span class="glyphicon glyphicon-ok-sign"></span><span lang_key="ordersuccessful">success!</span>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="name">Name</div>
+                  <div class="panel-body name"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="phoneNumber">Telephone</div>
+                  <div class="panel-body telephone"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="province">Provinces</div>
+                  <div class="panel-body Provinces"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="zipCode">post</div>
+                  <div class="panel-body postcode"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="address">address</div>
+                  <div class="panel-body address"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading">Email</div>
+                  <div class="panel-body email"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="email">message</div>
+                  <div class="panel-body message"></div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="panel panel-info">
+                  <div class="panel-heading" lang_key="orderNumber">sn</div>
+                  <div class="panel-body sn"></div>
+                </div>
+              </div>
+              
+            </div>
+        </div>
+
+        <script id="selectTpl" type="text/html">
+          {{set target = $data}}
+          {{each target}}
+           {{set k_s = $value.k_s}}
+                <div class="col-sm-6 select">
+                    <div>{{$value.k}}</div>
+                    <div class="dropdown">
+                        <button  class="btn btn-default dropdown-toggle" type="button" id={{'dropdownMenu'+$index}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k_s={{ k_s }} k_s_id= {{ $value.v[0].id }} imgurl= {{ $value.v[0].imgUrl }} >
+                          {{$value.v[0].name}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby={{'dropdownMenu'+$index}}>
+                            {{ each $value.v }}
+                            <li k_s={{ k_s }} k_s_id= {{ $value.id }} imgUrl= {{ $value.imgUrl }}>{{ $value.name }}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div> 
+          {{/each}}
+        </script>
+        <script id="pannerTpl" type="text/html">
+          {{set target = $data}}
+          {{if target.length == 0}} 
+            <div class="list-group-item list-group-item-danger" style="width: 100%;font-size: 18px;" lang_key="cartnull">Your shopping cart is empty! </div>
+          {{/if}}
+          {{each target}}
+            <div style="width: 100%">
+              <div class="pannerImg"><img src={{ $value.imgurl }}/></div>
+              <div class="pannerRight">
+                  <div class="pannerPrices">
+                      <span>x</span>&nbsp;<span class="pannernum">{{$value.num }}</span><span class="pannerPrice">{{$value.money_sign }} &nbsp; {{$value.priceed}}</span>
+                    </div>
+                  <div class="pannerTitle">{{$value.title}}</div>
+                  <div class="pannerAttr">{{$value.v1}} {{$value.v2}} {{$value.v3}}</div>
+                  <div class="removeGoods"><button type="button" class="btn btn-primary" style="float: right" data_id={{$value.id}}>Remove</button></div>
+              </div>
+            </div>
+          {{/each}}
+        </script>
+        <script id="provinceTpl" type="text/html">
+          {{set target = $data}}
+                    <div lang_key="provinces">Province</div>
+                    <div class="dropdown">
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu1' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
+                          {{target[0].v}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby='dropdownMenu1'>
+                            {{ each target }}
+                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+        </script>
+        <script id="crityTpl" type="text/html">
+          {{set target = $data}}
+                    <div lang_key="crity">Crity</div>
+                    <div class="dropdown">
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu2' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
+                          {{target[0].v}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby='dropdownMenu2'>
+                            {{ each target }}
+                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+        </script>
+        <script id="countyTpl" type="text/html">
+          {{set target = $data}}
+                    <div lang_key="county">County</div>
+                    <div class="dropdown">
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu3' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
+                          {{target[0].v}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby='dropdownMenu3'>
+                            {{ each target }}
+                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+        </script>
+        <script id="postTpl" type="text/html">
+          {{set target = $data[0].v}}
+                    <div lang_key="zipCode">zipCode</div>
+                    <div class="dropdown">
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu4' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          {{target[0]}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby='dropdownMenu4'>
+                            {{ each target }}
+                            <li>{{ $value}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+    <script src="../art_template.js"></script>
+    <script src="../serviceAPI.config.js"></script>
+    <script src="../tool.js"></script>
+    <script src="../lang.js"></script>
+    <script src="../province/ydnxy.js"></script>
+    <script>
+//tips() loading() toDivide() int() num() form in ../tool.js
+// template ()  form in ../art_template.js
+// setlang() getlang() form in ../lang.js
+  window.onload = function() {
+    var goodsInfo=null;
+    var config =null;
+    var goodsData =null;
+    var goodsDataArr= []; console.log(ydnxyData)
+    var malldata = []
+    var total_off = null //youhui jiage
+    var couponId= null   //youhui id 
+
+    var countPrice=null
+
+    getConfig()
+
+    $('#stepper .sub').on('click',sub);
+    $('#stepper .plus').on('click',plus);     
+    $('.buy .buyNow').on('click',buy) 
+    $('nav .goCart').on('click',buy) 
+    $('.buy .addCart').on('click',addCart) 
+    $('.buydiv .backgoods').on('click',backgoods)
+
+    $('.submit button').on('click',submit)
+    $('.form .couponidBut').on('click',couponidBut)
+ 
+     function getConfig(){
+        $.ajax({
+            type: "GET",
+             url: URL.getLang,
+             data: {},
+             success: function(data){
+                    config = data.data
+                    getGoodsInfo()
+             }
+        })
+    }
+    function getGoodsInfo(){
+        $.ajax({
+            type: "GET",
+             url: URL.getDetailGoodsInfo+'/'+location.search.split('=')[1],
+             data: {},
+             success: function(data){
+                    console.log(data)
+                    goodsInfo=data.good;
+                    
+                    swiperRender(data.good.list_images)
+                    swiperInit(data.good.list_images)
+                    titleInit()
+                    checkTree() //先确认select 数据在initselect
+                    detailRender()
+                    
+                    setlang($,config.config.lang) //多语言init html中的lang_key
+
+             }
+        })
+       
+     }
+
+    function swiperInit(data){
+        var swiper = new Swiper('.swiper-container',{
+			pagination: {
+			    el: '.swiper-pagination',
+          loop: true, // 循环模式选项
+		    	clickable: true,
+			    renderBullet: function (index, className) {
+			        return '<span class="' + className + '"><image src="'+data[index]+'"></span>';
+		    	},
+	       },
+	});
+  }
+    function swiperRender(data){
+        var _html = ''
+        $.each(data, function (index, value) { 
+          if(index===0){
+            _html+= '<div class="swiper-slide swiper-slide-active" ><img src="'+value+'"></div>'
+          }else{
+            _html+= '<div class="swiper-slide" ><img src="'+value+'"></div>'
+          }
+        });
+        $('.swiper-wrapper').html(_html)
+
+    }
+    function titleInit () {
+      $('.title h1').text(goodsInfo.title)
+      $('.goodsAbout').text(goodsInfo.about)
+      $('.goodsPrice').html(goodsInfo.money_sign+' '+(config.config.lang==='ind-BA'? '<span>'+num(goodsInfo.price)+'</span>' :'<span>'+goodsInfo.price+'</span>')+'&nbsp;&nbsp;&nbsp;<s>'+goodsInfo.money_sign+' '+(config.config.lang==='ind-BA'? num(goodsInfo.price):goodsInfo.price)+'</s>')
+    }
+    function selectInit (tree){
+      var html = template('selectTpl',tree)
+      $('.selectDiv').html(html)
+      $('.selectDiv .dropdown-menu li').on('click',selected)
+      selectedGoodsPrice()
+    }
+    function selected(e){
+       var button = $(this).parent().parent().find('button')
+       button.text( $(this).text() )
+       button.attr('k_s_id', $(this).attr('k_s_id') )
+       button.attr('imgurl', $(this).attr('imgurl') )
+       selectedGoodsPrice()
+      //  console.log($(this).attr('k_s_id'),$(this).text(),button)
+    }
+    //变换规格后获取sku 价格图片等；
+    function selectedGoodsPrice(){
+      var obj1={};
+      var obj2={};
+      var obj3={};
+      var button1 = $('.selectDiv button[k_s=s1]')
+      var button2 = $('.selectDiv button[k_s=s2]')
+      var button3 = $('.selectDiv button[k_s=s3]')
+      if (button1.length > 0){
+        obj1.s1=button1.attr('k_s_id')
+        obj1.imgurl=button1.attr('imgurl')
+        if(button2.length > 0){
+          obj2.s2=button2.attr('k_s_id')
+          obj2.imgurl=button2.attr('imgurl')
+          if(button3.length > 0){
+            obj3.s3=button3.attr('k_s_id')
+            obj3.imgurl=button3.attr('imgurl')
+            
+          }
+        }
+      }
+      if(JSON.stringify(obj1)!='{}'){
+        var arr1=[]
+        $.each(goodsInfo.list, function (index, value) { 
+          if(value.s1 == obj1.s1){
+            value.imgurl=obj1.imgurl
+            arr1.push(value)
+          }
+        });
+        if(JSON.stringify(obj2)!='{}'){
+              var arr2=[]
+              $.each(arr1, function (inde, valu) {
+                if(valu.s2 == obj2.s2){
+                   arr2.push(valu)
+                }
+               })
+               if(JSON.stringify(obj3)!='{}'){
+                       $.each(arr2, function (ind, val) {
+                          if(val.s3 == obj3.s3){
+                            goodsData = val
+                          }
+                       })
+                }else{
+                    goodsData = arr2[0]
+                }
+        }else{
+              goodsData = arr1[0]
+        }
+      }
+
+      if(goodsData){
+        goodsData.v1=button1.text()
+        goodsData.v2=button2.text()
+        goodsData.v3=button3.text()
+        console.log(goodsData)
+        $('.goodsimg img').prop('src',goodsData.imgurl)
+        $('.goodsFlyimg img').prop('src',goodsData.imgurl)
+        $('.goodsPrice span').text((config.config.lang ==='ind-BA') ? int(goodsData.price) : toDivide(goodsData.price))
+      }
+       
+    }
+
+    function checkTree (){
+      var arr=[]
+      goodsInfo.tree.forEach(function(val){
+        var obj = {}
+        obj.k=val.k
+        obj.k_s=val.k_s
+        obj.v=[]
+        val.v.forEach(function(vvl) {
+          var somefunc = function(list){
+             return list[obj.k_s]===vvl.id && list.stock_num>0  //能找到对应的id且库存不能是0
+          }
+          if(goodsInfo.list.some(somefunc)){
+             obj.v.push(vvl)
+          }
+        });
+        arr.push(obj)
+      })
+      selectInit(arr) //tree 确认后再 init select
+    }
+    //步进器按钮监听
+    function sub(){
+       var input = $(this).next()
+       if(input.val()<= 1 ){
+        input.val('1')
+       }else{
+        input.val(Number(input.val())-1)
+       }
+       
+    }
+    function plus(){
+       var input = $(this).prev()
+        input.val(Number(input.val())+1)
+    }
+    function detailRender(){
+      $('.detail').html(goodsInfo.detail_desc)
+    }
+
+    //click  addCart
+    function addCart(){
+      console.log(goodsDataArr)
+      var goodsDataCopy= JSON.parse(JSON.stringify(goodsData)) //深拷贝过来，给goodsDataArr
+      var somefunc= function(data){
+         if(goodsDataCopy.id == data.id){
+           data.num = data.num + Number($('.stepperConten input').val())
+           data.priceed = (config.config.lang ==='ind-BA') ? int(data.price*data.num) : toDivide(data.price*data.num)
+          }
+         return goodsDataCopy.id == data.id
+      }
+      if(!goodsDataArr.some(somefunc)){
+          
+        goodsDataCopy.num= Number($('.stepperConten input').val())
+        goodsDataCopy.priceed= (config.config.lang ==='ind-BA') ? int(goodsDataCopy.price*goodsDataCopy.num) : toDivide(goodsDataCopy.price*goodsDataCopy.num)
+        goodsDataCopy.money_sign= goodsInfo.money_sign
+        goodsDataCopy.title= goodsInfo.title
+          goodsDataArr.push(goodsDataCopy)
+      }
+
+      console.log(goodsDataCopy,goodsDataArr)
+      //飞入动画；
+      $('.goodsFlyimg').addClass('animationCart')
+      setTimeout(function(){ $('.goodsFlyimg').removeClass('animationCart');$('.goCart').removeClass('animationCartCount') },2100)
+      $('.goCart').addClass('animationCartCount')
+      $('.goCart .badge').text(goodsDataArr.length ||'')
+    } 
+     //点了buy 逻辑开始
+    function buy() {
+
+       $('.goodsdiv').hide()
+       $('.buydiv').show()
+       // buynow  or  cart
+       if($(this).hasClass('buyNow')){
+          goodsData.num= Number($('.stepperConten input').val())
+          goodsData.priceed= (config.config.lang ==='ind-BA') ? int(goodsData.price*goodsData.num) : toDivide(goodsData.price*goodsData.num)
+          goodsData.money_sign= goodsInfo.money_sign
+          goodsData.title= goodsInfo.title
+        console.log('lijigoumai')
+          // buynow 需要数据
+          var goodsDataArrBuy=[]
+          goodsDataArrBuy.push(goodsData)
+          malldata = []
+          goodsDataArrBuy.forEach(ele => {
+             var obj= {}
+              obj.good_id=goodsInfo.id
+              obj.messages=''
+              obj.price=ele.price
+              obj.sku_id=ele.id
+              obj.sku_nums=Number(ele.num)
+            malldata.push(obj)
+           }); //把goodsDataArr数据挪到malldata 发后台备用；
+
+           pannerRender(goodsDataArrBuy)
+           $('.removeGoods').hide()
+       }else{
+         console.log('gouwuche',goodsDataArr)
+           //cart 需要数据
+           malldata = []
+           goodsDataArr.forEach(ele => {
+             var obj= {}
+              obj.good_id=goodsInfo.id
+              obj.messages=''
+              obj.price=ele.price
+              obj.sku_id=ele.id
+              obj.sku_nums=Number(ele.num)
+            malldata.push(obj)
+           }); //把goodsDataArr数据挪到malldata 发后台备用；
+           pannerRender(goodsDataArr)
+           $('.removeGoods').show()
+       }
+
+       provinceRender()
+       setlang($,config.config.lang) //多语言init html中的lang_key
+    }
+    function removeGoods(){
+      $(this).parent().parent().parent().remove()
+       for(var i=goodsDataArr.length-1;i>=0 ;i--){
+         if(goodsDataArr[i].id===$(this).attr('data_id')){
+            goodsDataArr.splice(i,1)
+            console.log(i)
+         }
+       }
+       pannerRender(goodsDataArr)
+
+    }
+    function backgoods (){
+      $('.buydiv').hide()
+       $('.goodsdiv').show()
+
+       $('.buydiv .form').show()
+       $('.buydiv .submit').show()
+       $('.buydiv .orderSuccess').hide()
+       $('.coupondiv').hide()
+    }
+    function pannerRender(arr){
+      var html = template('pannerTpl',arr)
+      $('#panner').html(html) ;console.log(arr)
+      var price = 0
+      $.each(arr, function (inde, value) { 
+         price += value.num*value.price
+      });
+      countPrice = price
+      $('.totaldiv .total').text( goodsInfo.money_sign + (config.config.lang ==='ind-BA' ? int(countPrice) : toDivide(countPrice)) )
+      console.log(price)
+      $('.removeGoods button').unbind()
+      $('.removeGoods button').on('click',removeGoods)
+      $('.goCart .badge').text(goodsDataArr.length|| '')
+    }
+    
+    function objReturnArr (pro){
+          var arr=[]
+           for(var k in pro) { 
+               var obj={}
+               obj['k']= k 
+               obj['v']= pro[k]
+               
+               arr.push(obj)
+           }
+           return arr
+    }
+
+    function provinceRender() {
+      var html = template('provinceTpl',objReturnArr(ydnxyData.province_list))
+      $('#province').html(html)
+      cityRender('120000')
+      $('#province .dropdown-menu li').on('click',selectedProvince)
+    }
+
+    function selectedProvince(){
+      var button = $(this).parent().prev()
+      var k= $(this).attr('k')
+          button.text( $(this).text() )
+          button.attr('k', k)
+          cityRender(k)
+    }
+
+    function cityRender(k){
+      var arr= objReturnArr(ydnxyData.city_list)
+      var arred = []
+      $.each(arr,function(i,val){
+        if(val.k.substr(0,2)==k.substr(0,2)){
+          arred.push(val)
+        }
+      })
+      var html = template('crityTpl',arred)
+      $('#crity').html(html)
+      countyRender(arred[0].k)
+      $('#crity .dropdown-menu li').on('click',selectedCrity)
+    }
+
+    function selectedCrity (){
+      var button = $(this).parent().prev()
+      var k= $(this).attr('k')
+          button.text( $(this).text() )
+          button.attr('k', k)
+          countyRender(k)
+    }
+
+    function countyRender(k){
+      var arr= objReturnArr(ydnxyData.county_list)
+      var arred = []
+      $.each(arr,function(i,val){
+        if(val.k.substr(0,4)==k.substr(0,4)){
+          arred.push(val)
+        }
+      })
+
+      var html = template('countyTpl',arred)
+      postRender(arred[0].k)
+      $('#county').html(html)
+      $('#county .dropdown-menu li').on('click',selectedCounty)
+    }
+
+    function selectedCounty(){
+      var button = $(this).parent().prev()
+      var k= $(this).attr('k')
+          button.text( $(this).text() )
+          button.attr('k', k)
+          postRender(k)
+    }
+
+    function postRender(k){
+      var arr= objReturnArr(ydnxyData.post)
+      var arred = []
+      $.each(arr,function(i,val){
+        if(val.k==k){
+          arred.push(val)
+        }
+      })
+
+      var html = template('postTpl',arred)
+      $('#post').html(html)
+      $('#post .dropdown-menu li').on('click',selectedPost)
+    }
+
+    function selectedPost(){
+      var button = $(this).parent().prev()
+          button.text( $(this).text() )
+    }
+
+    function couponidBut(){
+        var coupon =$('.form input.couponid').val()
+        if(coupon !=''){
+          $.ajax({
+            type: "POST",
+             url: URL.sendCoupon,
+             data: {
+              cart_data: malldata,
+              coupon_code: coupon
+             },
+             success: function(data){
+                    console.log(data)
+                if(data.success){
+                  if(data.data.total_off===0){
+                        $('.coupondiv').hide()
+                        total_off = null
+                        couponId= null
+                        $('.totaldiv .total').text( goodsInfo.money_sign + (config.config.lang ==='ind-BA' ? int(countPrice) : toDivide(countPrice)) )
+                        tipErr('优惠条件未满足')
+                  }else{
+                        total_off = data.data.total_off
+                        couponId= data.data.coupon_code_id
+                        $('.totaldiv .total').text( goodsInfo.money_sign + (config.config.lang ==='ind-BA' ? int(countPrice - total_off) : toDivide(countPrice - total_off)) )
+                        $('.coupondiv').show()
+                        $('.coupondiv .coupon').text( '-'+goodsInfo.money_sign + (config.config.lang ==='ind-BA' ? int(total_off) : toDivide(total_off)) )
+                  }
+                }else{
+                  $('.coupondiv').hide()
+                  total_off = null
+                  couponId= null
+                  $('.totaldiv .total').text( goodsInfo.money_sign + (config.config.lang ==='ind-BA' ? int(countPrice) : toDivide(countPrice)) )
+                  tipErr('优惠码无效')
+                }
+
+             }
+        })
+        }
+    }
+
+    function submit () {
+
+        var name = $('.form input.name').val()
+        var telephone= $('.form input.telephone').val()
+        // var province= $('#province button').text().replace(/[\r\n ]/g,"")
+        // var crity= $('#crity button').text().replace(/[\r\n ]/g,"")
+        // var county= $('#county button').text().replace(/[\r\n ]/g,"")
+        var post= $('#post button').text().replace(/[\r\n ]/g,"")
+        var short_address= $('.form input.short_address').val()
+        var email= $('.form input.email').val()
+        var message= $('.form input.message').val() 
+        // var couponid= $('.form input.couponid').val()
+        var address = $('.form #province button').text().replace(/[\r\n ]/g,"")+'/'+$('.form #crity button').text().replace(/[\r\n ]/g,"")+'/'+$('.form #county button').text().replace(/[\r\n ]/g,"")
+        // console.log(name,telephone,province,crity,county,post,short_address,email,message,couponid)
+
+        var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+        var regTele = null
+        if(config.config.lang === 'ind-BA'){
+            regTele= /^[0-9]{11,12}$/; //印尼电话号码要求11,12位
+        }else if(config.config.lang === 'en-PHP'){
+            regTele= /\d/;
+        }else{
+            regTele= /\d/;
+        }
+        
+        if(name === ''){
+          tipErr('name不能为空');return
+         }else if (telephone===''){
+          tipErr('telephone不能为空');return
+         }else if (!regTele.test(telephone)){
+          tipErr('telephone格式不正确');return
+         }else if (short_address===''){
+          tipErr('详细地址不能为空');return
+         }else if (email!='' && !reg.test(email)){
+          tipErr('email格式不正确');return
+         }
+
+         var data = {}
+             data.cart_data = malldata
+             data.total_off = total_off
+             data.receiver_name = name
+             data.receiver_phone = telephone
+             data.receiver_email = email
+             data.address =  short_address
+             data.short_address = address
+             data.postcode = post
+             data.leave_word = message
+             data.coupon_code_id = couponId
+             loading('show')
+        $.ajax({
+            type: "POST",
+             url: URL.sendOrderInfo,
+             data: data,
+             success: function(data){
+                    console.log(data)
+                    
+                    if(data.success){
+                      $('.buydiv .form').hide()
+                      $('.buydiv .submit').hide()
+                      $('.buydiv .orderSuccess').show()
+
+                      $('.orderSuccess .name').text(data.data.receiver_name)
+                      $('.orderSuccess .telephone').text(data.data.receiver_phone)
+                      $('.orderSuccess .Provinces').text(data.data.short_address)
+                      $('.orderSuccess .postcode').text(data.data.postcode)
+                      $('.orderSuccess .address').text(data.data.address)
+                      $('.orderSuccess .email').text(data.data.receiver_email)
+                      $('.orderSuccess .message').text(data.data.leave_word)
+                      $('.orderSuccess .sn').text(data.data.sn)
+
+                      $('.form input.name').val('')
+                      $('.form input.telephone').val('')
+                      $('.form input.short_address').val('')
+                      $('.form input.email').val('')
+                      $('.form input.message').val('') 
+                      $('.form input.couponid').val('') 
+
+
+                    }else{
+                      tipErr('服务器错误')
+                    }
+                    loading('hide')
+             },
+             error: function (){
+                    tipErr('服务器错误')
+                    loading('hide')
+             }
+        })
+     }
+}
+
+
+
+    </script>
+  </body>
+</html>
