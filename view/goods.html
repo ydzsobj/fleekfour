@@ -563,13 +563,13 @@
           {{set target = $data}}
                     <div lang_key="provinces">Province</div>
                     <div class="dropdown">
-                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu1' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
-                          {{target[0].v}}
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu1' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          {{target[0]}}
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby='dropdownMenu1'>
                             {{ each target }}
-                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            <li>{{ $value }}</li>
                             {{/each}}
                         </ul>
                     </div>
@@ -578,13 +578,13 @@
           {{set target = $data}}
                     <div lang_key="crity">Crity</div>
                     <div class="dropdown">
-                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu2' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
-                          {{target[0].v}}
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu2' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                          {{target[0]}}
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby='dropdownMenu2'>
                             {{ each target }}
-                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            <li>{{ $value }}</li>
                             {{/each}}
                         </ul>
                     </div>
@@ -593,19 +593,19 @@
           {{set target = $data}}
                     <div lang_key="county">County</div>
                     <div class="dropdown">
-                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu3' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" k={{ target[0].k }} >
-                          {{target[0].v}}
+                        <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu3' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >
+                          {{target[0]}}
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby='dropdownMenu3'>
                             {{ each target }}
-                            <li k={{ $value.k }}>{{ $value.v }}</li>
+                            <li>{{ $value }}</li>
                             {{/each}}
                         </ul>
                     </div>
         </script>
         <script id="postTpl" type="text/html">
-          {{set target = $data[0].v}}
+          {{set target = $data}}
                     <div lang_key="zipCode">zipCode</div>
                     <div class="dropdown">
                         <button  class="btn btn-default dropdown-toggle" type="button" id='dropdownMenu4' data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -627,6 +627,7 @@
     <script src="../tool.js"></script>
     <script src="../lang.js"></script>
     <script src="../province/ydnxy.js"></script>
+    <script src="../province/flb.js"></script>
     <script>
 //tips() loading() toDivide() int() num() form in ../tool.js
 // template ()  form in ../art_template.js
@@ -641,6 +642,7 @@
     var couponId= null   //youhui id 
 
     var countPrice=null
+    var provinceData=null
 
     getConfig()
 
@@ -861,6 +863,12 @@
 
        $('.goodsdiv').hide()
        $('.buydiv').show()
+       // 三级联动地址切换
+        if(config.config.lang ==='ind-BA'){
+          provinceData= ydnxyData
+        }else if(config.config.lang ==='en-PHP'){
+          provinceData= JSON.parse(JSON.stringify(flbData).replace(/&#39;/g,"'"))
+        }
        // buynow  or  cart
        if($(this).hasClass('buyNow')){
           goodsData.num= Number($('.stepperConten input').val())
@@ -939,94 +947,61 @@
       $('.goCart .badge').text(goodsDataArr.length|| '')
     }
     
-    function objReturnArr (pro){
-          var arr=[]
-           for(var k in pro) { 
-               var obj={}
-               obj['k']= k 
-               obj['v']= pro[k]
-               
-               arr.push(obj)
-           }
-           return arr
-    }
 
     function provinceRender() {
-      var html = template('provinceTpl',objReturnArr(ydnxyData.province_list))
+     
+      var html = template('provinceTpl',provinceData.map(function(e){return e.name}))
       $('#province').html(html)
-      cityRender('120000')
+      cityRender(provinceData[0].cityList)
       $('#province .dropdown-menu li').on('click',selectedProvince)
     }
 
     function selectedProvince(){
-      var button = $(this).parent().prev()
-      var k= $(this).attr('k')
+      var button = $(this).parent().parent().find('button')
           button.text( $(this).text() )
-          button.attr('k', k)
-          cityRender(k)
+
+          cityRender( provinceData.find(function(e){return e.name == $('#province button').text().trim()}).cityList )
     }
 
     function cityRender(k){
-      var arr= objReturnArr(ydnxyData.city_list)
-      var arred = []
-      $.each(arr,function(i,val){
-        if(val.k.substr(0,2)==k.substr(0,2)){
-          arred.push(val)
-        }
-      })
-      var html = template('crityTpl',arred)
+
+      var html = template('crityTpl',k.map(function(e){return e.name}))
       $('#crity').html(html)
-      countyRender(arred[0].k)
+      countyRender(k[0].areaList)
       $('#crity .dropdown-menu li').on('click',selectedCrity)
     }
 
     function selectedCrity (){
-      var button = $(this).parent().prev()
-      var k= $(this).attr('k')
+      var button = $(this).parent().parent().find('button')
           button.text( $(this).text() )
-          button.attr('k', k)
-          countyRender(k)
+
+          countyRender( provinceData.find(function(e){return e.name == $('#province button').text().trim()}).cityList.find(function(e){return e.name == $('#crity button').text().trim()}).areaList )
     }
 
     function countyRender(k){
-      var arr= objReturnArr(ydnxyData.county_list)
-      var arred = []
-      $.each(arr,function(i,val){
-        if(val.k.substr(0,4)==k.substr(0,4)){
-          arred.push(val)
-        }
-      })
 
-      var html = template('countyTpl',arred)
-      postRender(arred[0].k)
+      var html = template('countyTpl',k.map(function(e){return e.name}))
+      postRender(k[0].postList)
       $('#county').html(html)
       $('#county .dropdown-menu li').on('click',selectedCounty)
     }
 
     function selectedCounty(){
-      var button = $(this).parent().prev()
-      var k= $(this).attr('k')
+      var button = $(this).parent().parent().find('button')
           button.text( $(this).text() )
-          button.attr('k', k)
-          postRender(k)
+        
+          postRender(provinceData.find(function(e){return e.name == $('#province button').text().trim()}).cityList.find(function(e){return e.name == $('#crity button').text().trim()}).areaList.find(function(e){return e.name == $('#county button').text().trim()}).postList )
     }
 
     function postRender(k){
-      var arr= objReturnArr(ydnxyData.post)
-      var arred = []
-      $.each(arr,function(i,val){
-        if(val.k==k){
-          arred.push(val)
-        }
-      })
 
-      var html = template('postTpl',arred)
+      var html = template('postTpl',k)
       $('#post').html(html)
       $('#post .dropdown-menu li').on('click',selectedPost)
     }
 
     function selectedPost(){
-      var button = $(this).parent().prev()
+      var button = $(this).parent().parent().find('button')
           button.text( $(this).text() )
     }
 
@@ -1073,15 +1048,13 @@
 
         var name = $('.form input.name').val()
         var telephone= $('.form input.telephone').val()
-        // var province= $('#province button').text().replace(/[\r\n ]/g,"")
-        // var crity= $('#crity button').text().replace(/[\r\n ]/g,"")
-        // var county= $('#county button').text().replace(/[\r\n ]/g,"")
+
         var post= $('#post button').text().replace(/[\r\n ]/g,"")
         var short_address= $('.form input.short_address').val()
         var email= $('.form input.email').val()
         var message= $('.form input.message').val() 
         // var couponid= $('.form input.couponid').val()
-        var address = $('.form #province button').text().replace(/[\r\n ]/g,"")+'/'+$('.form #crity button').text().replace(/[\r\n ]/g,"")+'/'+$('.form #county button').text().replace(/[\r\n ]/g,"")
+        var address = $('.form #province button').text().trim()+'/'+$('.form #crity button').text().trim()+'/'+$('.form #county button').text().trim()
         // console.log(name,telephone,province,crity,county,post,short_address,email,message,couponid)
 
         var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
